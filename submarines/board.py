@@ -17,7 +17,7 @@ def count_remaining_ships_cells(ships: list[list[int]], shots: list[list[bool]])
 
 def render_public(ships: list[list[int]], shots: list[list[bool]]) -> str:
     count = 1
-    res = "[ A B C E F G H I J ] \n"
+    res = "[ A B C D E F G H I J ] \n  "
     for i in range(len(ships)):
         for j in range(len(ships)):
             if not shots[i][j]:
@@ -26,13 +26,13 @@ def render_public(ships: list[list[int]], shots: list[list[bool]]) -> str:
                 res += "x "
             if shots[i][j] and ships[i][j] == 1:
                 res += "v "
-        res += f"[{str(count)}] \n"
+        res += f"[{str(count)}] \n  "
         count += 1
     return res
 
 def render_reveal(ships: list[list[int]], shots: list[list[bool]]) -> str:
     count = 1
-    res = "[ A B C E F J H I J ] \n"
+    res = "[ A B C D E F J H I J ] \n  "
     for i in range(len(ships)):
         for j in range(len(ships)):
             if not shots[i][j]:
@@ -44,7 +44,7 @@ def render_reveal(ships: list[list[int]], shots: list[list[bool]]) -> str:
                 res += "x "
             if shots[i][j] and ships[i][j] == 1:
                 res += "v "
-        res += f"[{str(count)}] \n"
+        res += f"[{str(count)}] \n  "
         count += 1
     return res
 
