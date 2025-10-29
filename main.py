@@ -7,7 +7,7 @@ def play(size: int = 10, n_ships: int = 17, max_shots: int = 25) -> None:
     place_random_ships(manage_game["ships"])
     while True:
         print_status(manage_game)
-        coll_input = input("please choose a coll Coordination : ")
+        coll_input = input("please choose a column Coordination : ")
         row_input = input("please choose a row Coordination : ")
         chck_coordination = parse_coords(row_input,coll_input)
 
