@@ -1,3 +1,5 @@
+from submarines.board import *
+
 def parse_coords(raw: str, column: str) -> tuple[int, int] | None:
     raw = raw.lower()
     alfa = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
@@ -7,16 +9,23 @@ def parse_coords(raw: str, column: str) -> tuple[int, int] | None:
         return None
 
     if column.isdigit():
-        column = int(column)
+        column = int(column) -1
     else:
         return None
     return raw, column
 
 def print_status(state: dict) -> None:
-    for row in state
+    print(f'{render_public(state["ships"], state["shots"])} \n'
+          f'you ave {state["max_shots"] - state["used_shots"]} left \n '
+          f'')
 
-# def print_end(state: dict, won: bool) -> None:
-#     if won
-#
-# alfa = ["a","b","c","d","e","f","g","h","i","j"]
+def print_end(state: dict, won: bool, lost: bool) -> None:
+    if won:
+        print("you won! :).")
+    if lost:
+        print("you loss! :-(.")
+    print(render_reveal(state["ships"], state["shots"]))
+    return
+
+
 
