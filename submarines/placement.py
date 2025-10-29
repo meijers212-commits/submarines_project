@@ -1,14 +1,5 @@
 import random
 
-
-def create_matrix(size: int, fill: int = 0) -> list[list[int]]:
-    return [[fill for i in range(size)]for i in range(size)]
-
-
-
-
-
-
 def place_ship_if_valid(board: list[list[int]], start_row: int, start_col: int, ship_length: int, direction: int) -> bool:
     board_size = len(board)
 

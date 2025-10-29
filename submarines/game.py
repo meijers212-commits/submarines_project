@@ -1,6 +1,6 @@
-import random
-from submarines.board import *
-def init_game(size: int, n_ships: int, max_shots: int, *, rng: random.Random | None = None) -> dict:
+from submarines.board import create_matrix,create_bool_matrix,in_bounds
+
+def init_game(size: int, n_ships: int, max_shots: int) -> dict:
      return {
       "size": size,
       "ships": create_matrix(size),

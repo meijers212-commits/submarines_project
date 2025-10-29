@@ -1,18 +1,27 @@
-from submarines.game import *
-from submarines.io import *
+from submarines.game import shoot,init_game,is_won,is_lost
+from submarines.io import print_end,print_status,parse_coords
+from submarines.placement import place_random_ships
 
 def play(size: int = 10, n_ships: int = 17, max_shots: int = 25) -> None:
-    maneg_game = init_game(size, n_ships, max_shots)
+    manage_game = init_game(size, n_ships, max_shots)
+    place_random_ships(manage_game["ships"])
     while True:
-        print_status(maneg_game)
-        row_input = input("please choose a row Coordination")
+        print_status(manage_game)
+        coll_input = input("please choose a coll Coordination : ")
+        row_input = input("please choose a row Coordination : ")
+        chck_coordination = parse_coords(row_input,coll_input)
+
+        if chck_coordination:
+            shoot(manage_game,chck_coordination[0],chck_coordination[1])
+            print_end(manage_game,is_won(manage_game),is_lost(manage_game))
+            if is_lost(manage_game) or is_lost(manage_game):
+                break
 
 
 
-# 1.	אתחול מצב; 2) כל עוד לא ניצחון/הפסד ויש יריות — קלט קואורדינטות, ירי, הודעה;
 
-# 2.	בסיום — תוצאה וחשיפה אם צריך.
 
-# if __name__ == "__main__":
- # לטעון פרמטרים קבועים; למתקדמים — argparse לקריאת size, n_ships, max_shots, ואופציונלית --seed.
+if __name__=="__main__":
+    play()
+
 
