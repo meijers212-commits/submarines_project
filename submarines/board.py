@@ -37,7 +37,7 @@ def render_reveal(ships: list[list[int]], shots: list[list[bool]]) -> str:
         for j in range(len(ships)):
             if not shots[i][j]:
                 if ships[i][j]:
-                    res += "1"
+                    res += "1 "
                 else:
                     res += "o "
             if shots[i][j] and ships[i][j] == 0:
