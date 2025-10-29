@@ -17,7 +17,7 @@ def count_remaining_ships_cells(ships: list[list[int]], shots: list[list[bool]])
 
 def render_public(ships: list[list[int]], shots: list[list[bool]]) -> str:
     count = 1
-    res = "[ A B C E F J H I J ] \n"
+    res = "[ A B C E F G H I J ] \n"
     for i in range(len(ships)):
         for j in range(len(ships)):
             if not shots[i][j]:
